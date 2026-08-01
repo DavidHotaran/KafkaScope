@@ -18,7 +18,33 @@ package = false
 
 [dependency-groups]
 dev = [
-    "black>=26.5.1",
-    "flake8>=7.3.0",
     "pytest>=9.1.1",
+    "ruff>=0.16.1",
 ]
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort (import sorting)
+    "UP",  # pyupgrade (modernize syntax)
+    "B",   # flake8-bugbear (common bug patterns)
+]
+ignore = [
+    "E203",  # whitespace before ':' (formatter handles this)
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
